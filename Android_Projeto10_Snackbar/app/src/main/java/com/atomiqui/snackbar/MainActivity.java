@@ -28,10 +28,12 @@ public class MainActivity extends AppCompatActivity {
                 ).setAction("Sim", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        // Ações a clicar no "sim"
                     }
-                }).show();
+                }).setActionTextColor(getResources().getColor(R.color.white)).show();
+
+                // Para fechar a snackbar da pra usar o método dismiss();
             }
-        }
+        });
     }
 }
