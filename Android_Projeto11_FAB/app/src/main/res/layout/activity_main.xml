@@ -6,19 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.FloatingActionButtonFAB.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.FloatingActionButtonFAB.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+    // ÓTIMA MANEIRA DE ORGANIZAR
+    // É como se os códigos daquele arquivo estivessem aqui
 
     <include layout="@layout/content_main" />
 
@@ -29,6 +18,8 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:backgroundTint="@color/teal_700"
+        android:elevation="5dp"
+        app:srcCompat="@android:drawable/sym_action_chat" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
