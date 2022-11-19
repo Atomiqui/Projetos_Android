@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView text_porcent, text_exibeGorjeta, text_exibeTotal, text_aviso;
     private SeekBar seekBar_porcent;
     private double totalInicial = 0;
-    private boolean controle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
                     gorjeta = (porcentagem/100)*totalInicial;
 
                     DecimalFormat df = new DecimalFormat("#.00");
-                    df.format(0.912385);
 
                     text_porcent.setText( porcentagem + "%");
                     text_exibeGorjeta.setText("R$ " + df.format(gorjeta));

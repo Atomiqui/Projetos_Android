@@ -57,6 +57,6 @@ public class MainActivity extends AppCompatActivity {
             resultado = resultado + "Álcool.";
         }
 
-        Text_Resultado.setText("" + resultado);
+        Text_Resultado.setText(resultado.toString()); // se deixar a variável sem ("" + var) ou o .toString(), da erro
     }
 }
