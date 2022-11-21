@@ -21,3 +21,6 @@ __Projeto 3 Gorjeta:__
   
   __Projeto 8 Cara ou Coroa:__
   * Construção de Layout;
+  * Uso de mais de uma Activity;
+  * Troca de dados entre Activities;
+  * Como fechar a Activity empilhada;
