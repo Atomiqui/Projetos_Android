@@ -26,7 +26,27 @@ class MainActivity : AppCompatActivity() {
 
         seekBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                val gorjeta: Double
+                val porcentagem = seekBar!!.progress.toDouble()
+
                 try {
+                    var totalInicial : Double = textInput_preco.getText().toString().toDouble()
+                    gorjeta = porcentagem / 100 * totalInicial
+                    val df = DecimalFormat("#.00")
+
+                    text_percent.setText("$porcentagem%")
+                    text_gorjeta.setText("R$ " + df.format(gorjeta))
+                    text_total.setText("R$ " + df.format(totalInicial + gorjeta))
+                    text_aviso.text = ""
+                }
+                catch (e: Exception) {
+                    seekBar.setProgress(0)
+                    text_percent.setText("0%")
+                    text_gorjeta.setText("")
+                    text_total.setText("")
+                    text_aviso.text = "Insira um valor válido!"
+                }
+                /*try {
                     var porcentagem : Int = seekBar!!.progress
 
                     var totalInicial : Double = textInput_preco.getText().toString().toDouble()
@@ -46,15 +66,15 @@ class MainActivity : AppCompatActivity() {
                     text_gorjeta.setText("")
                     text_total.setText("")
                     text_aviso.text = "Insira um valor válido!"
-                }
+                }*/
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
-                TODO("Not yet implemented")
+                //TODO("Not yet implemented")
             }
 
             override fun onStopTrackingTouch(p0: SeekBar?) {
-                TODO("Not yet implemented")
+                //TODO("Not yet implemented")
             }
 
         })
