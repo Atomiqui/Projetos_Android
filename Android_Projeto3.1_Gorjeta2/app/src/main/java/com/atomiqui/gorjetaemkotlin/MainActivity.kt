@@ -9,64 +9,49 @@ import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
-    // Aparentemente não se faz isso, basta usar um cast que o tipo é atribuido automaticamente
-    // private lateinit var textInput_preco: TextInputEditText
+    private lateinit var textInput_preco: TextInputEditText
+    private lateinit var text_gorjeta   : TextView
+    private lateinit var text_total     : TextView
+    private lateinit var text_aviso     : TextView
+    private lateinit var text_percent   : TextView
+    private lateinit var seekBar        : SeekBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // val pois essas variaveis não vai ser alteradas (nem devem)
-        val textInput_preco = findViewById<TextInputEditText>(R.id.inputText_preco)
-        val text_gorjeta = findViewById<TextView>(R.id.text_gorjeta)
-        val text_total = findViewById<TextView>(R.id.text_total)
-        val text_aviso = findViewById<TextView>(R.id.text_aviso)
-        val text_percent = findViewById<TextView>(R.id.text_aviso)
-        val seekBar = findViewById<SeekBar>(R.id.seekBar)
+        textInput_preco = findViewById(R.id.inputText_preco)
+        text_gorjeta    = findViewById(R.id.text_gorjeta)
+        text_total      = findViewById(R.id.text_total)
+        text_aviso      = findViewById(R.id.text_aviso)
+        text_percent    = findViewById(R.id.text_aviso)
+        seekBar         = findViewById(R.id.seekBar)
 
-        seekBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        manageSeekBar()
+    }
+
+    private fun manageSeekBar() {
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val gorjeta: Double
-                val porcentagem = seekBar!!.progress.toDouble()
+                var porcentagem = seekBar!!.progress.toDouble()
 
                 try {
                     var totalInicial : Double = textInput_preco.getText().toString().toDouble()
-                    gorjeta = porcentagem / 100 * totalInicial
+                    var gorjeta: Double = porcentagem / 100 * totalInicial
                     val df = DecimalFormat("#.00")
 
                     text_percent.setText("$porcentagem%")
                     text_gorjeta.setText("R$ " + df.format(gorjeta))
                     text_total.setText("R$ " + df.format(totalInicial + gorjeta))
                     text_aviso.text = ""
-                }
-                catch (e: Exception) {
+                } catch (e: Exception) {
                     seekBar.setProgress(0)
                     text_percent.setText("0%")
                     text_gorjeta.setText("")
                     text_total.setText("")
                     text_aviso.text = "Insira um valor válido!"
                 }
-                /*try {
-                    var porcentagem : Int = seekBar!!.progress
-
-                    var totalInicial : Double = textInput_preco.getText().toString().toDouble()
-                    var gorjeta : Double = (porcentagem / 100) * totalInicial
-
-                    val df = DecimalFormat("#.00")
-
-                    text_percent.setText(porcentagem.toString() + "%")
-                    text_gorjeta.setText("R$ " + df.format(gorjeta))
-                    text_total.setText("R$ " + df.format(totalInicial + gorjeta))
-
-                    text_aviso.text = ""
-                }
-                catch(e : Exception) {
-                    seekBar?.setProgress(0)
-                    text_percent.setText("0%")
-                    text_gorjeta.setText("")
-                    text_total.setText("")
-                    text_aviso.text = "Insira um valor válido!"
-                }*/
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -78,6 +63,5 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
     }
 }
