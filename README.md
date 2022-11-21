@@ -19,6 +19,9 @@ __Projeto 3 Gorjeta:__
   * Uso do DecimalFormat para evitar muitas casas decimais;
   * Teste de validação no valor da conta.
   
+  __Projeto 3.1 Gorjeta:__
+  * Versão em Kotlin.
+  
   __Projeto 8 Cara ou Coroa:__
   * Construção de Layout;
   * Uso de mais de uma Activity;
