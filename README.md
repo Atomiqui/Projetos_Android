@@ -19,7 +19,7 @@ __Projeto 3 Gorjeta:__
   * Uso do DecimalFormat para evitar muitas casas decimais;
   * Teste de validação no valor da conta.
   
-  __Projeto 3.1 Gorjeta:__
+  __Projeto 3.1 Gorjeta 2:__
   * Versão em Kotlin.
   
   __Projeto 8 Cara ou Coroa:__
