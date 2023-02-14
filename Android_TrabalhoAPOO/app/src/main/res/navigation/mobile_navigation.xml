@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.atomiqui.trabalhoapoo.ui.gallery.GalleryFragment"
+        android:name="com.atomiqui.trabalhoapoo.ui.escalar.EscalarFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_escalar" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.atomiqui.trabalhoapoo.ui.slideshow.SlideshowFragment"
+        android:name="com.atomiqui.trabalhoapoo.ui.jogadores.JogadoresFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_jogadores" />
 </navigation>

@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
 
         // Definir um layout
-        //LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL); // para fazer o efeito de ir passando pro lado
-        //layoutManager.setOrientation(LinearLayoutManager.VERTICAL); // para passar pra cima/baixo igual feed
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL); // para passar pra cima/baixo igual feed
 
         // GridLayout
         // Da pra por duas colunas (fazer uma galeria)
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        //RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
 
         // Definir um adapter

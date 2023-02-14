@@ -2,11 +2,13 @@ package com.atomiqui.recyclerview.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.DragEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -38,10 +40,11 @@ public class MainActivity extends AppCompatActivity {
         Adapter adapter = new Adapter(listaFilmes);
 
         // LayoutManager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 2);
 
         recycler_filmes.setHasFixedSize(true);
-        recycler_filmes.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        //recycler_filmes.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        //recycler_filmes.addItemDecoration(new DividerItemDecoration(this, LinearLayout));
         recycler_filmes.setLayoutManager(layoutManager);
         recycler_filmes.setAdapter(adapter);
 
