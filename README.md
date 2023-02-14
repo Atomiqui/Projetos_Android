@@ -27,3 +27,8 @@ __Projeto 3 Gorjeta:__
   * Uso de mais de uma Activity;
   * Troca de dados entre Activities;
   * Como fechar a Activity empilhada;
+
+  __Trabalho de APSOO:__
+  * Trabalho voltado para o desenvolvimento de padrões de projeto;
+  * Temática da copa;
+  * Simplificado para o propósito;
