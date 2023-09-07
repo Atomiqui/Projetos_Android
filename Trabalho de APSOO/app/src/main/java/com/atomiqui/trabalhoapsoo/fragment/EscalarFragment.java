@@ -66,7 +66,9 @@ public class EscalarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 CardView campo = vieew.findViewById(R.id.cardView);
+                View image_campo = campo. findViewById(R.id.image_campo);
                 campo.removeAllViewsInLayout ();
+                campo.addView(image_campo);
                 miniaturas.clear ();
             }
         });

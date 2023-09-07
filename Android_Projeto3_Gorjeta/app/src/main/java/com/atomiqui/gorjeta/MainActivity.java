@@ -3,6 +3,8 @@ package com.atomiqui.gorjeta;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
     private TextInputEditText textInput_valor;
     private TextView text_porcent, text_exibeGorjeta, text_exibeTotal, text_aviso;
+    private Button button_clear;
     private SeekBar seekBar_porcent;
     private double totalInicial = 0;
 
@@ -27,7 +30,22 @@ public class MainActivity extends AppCompatActivity {
         text_exibeTotal     = findViewById(R.id.text_exibeTotal);
         text_aviso          = findViewById(R.id.text_aviso);
         seekBar_porcent     = findViewById(R.id.seekBar_porcent);
+        button_clear        = findViewById(R.id.button_clear);
 
+        textInput_valor.requestFocus();
+
+        button_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textInput_valor.setText("");
+                zeraValores();
+            }
+        });
+
+        seekBarController();
+    }
+
+    private void seekBarController() {
         seekBar_porcent.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -46,10 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     text_aviso.setText("");
                 }
                 catch (Exception e) {
-                    seekBar_porcent.setProgress(0);
-                    text_porcent.setText("0%");
-                    text_exibeGorjeta.setText("");
-                    text_exibeTotal.setText("");
+                    zeraValores();
                     text_aviso.setText("Insira um valor válido!");
                 }
             }
@@ -64,5 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void zeraValores() {
+        seekBar_porcent.setProgress(0);
+        text_porcent.setText("0%");
+        text_exibeGorjeta.setText("");
+        text_exibeTotal.setText("");
     }
 }
